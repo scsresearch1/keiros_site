@@ -4015,6 +4015,9 @@ section {
 /* Integration Flow Section */
 .integration {
     background: var(--color-bg-secondary);
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
 }
 
 .flow-diagram {
@@ -4033,16 +4036,21 @@ section {
     .flow-diagram {
         flex-direction: column;
         gap: var(--spacing-lg);
+        overflow-x: hidden;
+        padding: var(--spacing-lg);
     }
     
     .flow-step {
         min-width: 100%;
         max-width: 100%;
+        width: 100%;
     }
     
     .flow-arrow {
         transform: rotate(90deg);
-        flex: 0 0 50px;
+        flex: 0 0 40px;
+        width: 40px;
+        height: 40px;
     }
 }
 
@@ -4152,6 +4160,8 @@ section {
     font-weight: 600;
     color: var(--color-text-primary);
     margin-bottom: var(--spacing-md);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .flow-description {
@@ -4159,6 +4169,8 @@ section {
     font-size: var(--text-sm);
     margin-bottom: var(--spacing-lg);
     line-height: 1.7;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .flow-metrics {
@@ -5156,11 +5168,21 @@ section {
     
     .flow-diagram {
         flex-direction: column;
+        overflow-x: hidden;
+        padding: var(--spacing-lg);
+    }
+    
+    .flow-step {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
     }
     
     .flow-arrow {
         transform: rotate(90deg);
-        flex: 0 0 50px;
+        flex: 0 0 35px;
+        width: 35px;
+        height: 35px;
     }
     
     .app-photo-container {
@@ -5444,22 +5466,66 @@ section {
     /* Integration Flow */
     .flow-diagram {
         flex-direction: column !important;
-        gap: var(--spacing-lg);
-        overflow-x: visible;
+        gap: var(--spacing-md);
+        overflow-x: hidden;
+        padding: var(--spacing-md);
+        margin-top: var(--spacing-xl);
+        width: 100%;
+        max-width: 100%;
     }
     
     .flow-step {
         width: 100%;
         max-width: 100%;
         min-width: 100%;
-        padding: var(--spacing-lg);
+        padding: var(--spacing-md);
+        margin: 0;
+        flex: 1 1 auto;
+    }
+    
+    .flow-icon {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto var(--spacing-md);
+    }
+    
+    .flow-label {
+        font-size: var(--text-base);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .flow-description {
+        font-size: var(--text-xs);
+        margin-bottom: var(--spacing-md);
+        line-height: 1.6;
+    }
+    
+    .flow-metrics {
+        margin-top: var(--spacing-md);
+        padding-top: var(--spacing-md);
+    }
+    
+    .flow-metrics .metric {
+        font-size: var(--text-xs);
+        margin: var(--spacing-xs) 0;
     }
     
     .flow-arrow {
         transform: rotate(90deg);
-        flex: 0 0 40px;
-        width: 40px;
-        height: 40px;
+        flex: 0 0 30px;
+        width: 30px;
+        height: 30px;
+        margin: var(--spacing-xs) 0;
+    }
+    
+    .flow-arrow svg {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .flow-label-small {
+        font-size: var(--text-xs);
+        margin-top: var(--spacing-xs);
     }
     
     /* Contact Section */
@@ -5548,6 +5614,30 @@ section {
     }
     
     .flow-step {
-        padding: var(--spacing-md);
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+    
+    .flow-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .flow-label {
+        font-size: var(--text-sm);
+    }
+    
+    .flow-description {
+        font-size: var(--text-xs);
+    }
+    
+    .flow-diagram {
+        padding: var(--spacing-sm);
+        gap: var(--spacing-sm);
+    }
+    
+    .flow-arrow {
+        flex: 0 0 25px;
+        width: 25px;
+        height: 25px;
     }
 }
