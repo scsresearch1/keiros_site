@@ -183,6 +183,7 @@ const animatableElements = document.querySelectorAll([
     '.flow-step',
     '.case-card',
     '.device-video-container',
+    '.erp-image-container',
     '.app-photo-container',
     '.device-component-card',
     '.feature-card',
@@ -582,6 +583,133 @@ if (prefersReducedMotion.matches) {
         el.style.transition = 'none';
     });
 }
+
+// How It Works Explainer
+const explainerButtons = document.querySelectorAll('.explainer-btn[data-step]');
+const explainerSteps = document.querySelectorAll('.explainer-step');
+const progressDots = document.querySelectorAll('.progress-dot');
+const progressFill = document.querySelector('.progress-fill');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const playIcon = playPauseBtn?.querySelector('.play-icon');
+const pauseIcon = playPauseBtn?.querySelector('.pause-icon');
+
+let currentStep = 0;
+let isPlaying = false;
+let autoPlayInterval = null;
+const stepDuration = 4000; // 4 seconds per step
+const totalSteps = 5;
+
+function showStep(stepIndex) {
+    // Update steps
+    explainerSteps.forEach((step, index) => {
+        if (index === stepIndex) {
+            step.classList.add('active');
+        } else {
+            step.classList.remove('active');
+        }
+    });
+    
+    // Update buttons
+    explainerButtons.forEach((btn, index) => {
+        if (index === stepIndex) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+    
+    // Update progress dots
+    progressDots.forEach((dot, index) => {
+        if (index === stepIndex) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+    
+    // Update progress bar
+    if (progressFill) {
+        const progress = ((stepIndex + 1) / totalSteps) * 100;
+        progressFill.style.width = `${progress}%`;
+    }
+    
+    currentStep = stepIndex;
+}
+
+function nextStep() {
+    const next = (currentStep + 1) % totalSteps;
+    showStep(next);
+}
+
+function startAutoPlay() {
+    if (autoPlayInterval) return;
+    
+    isPlaying = true;
+    if (playIcon) playIcon.style.display = 'none';
+    if (pauseIcon) pauseIcon.style.display = 'inline';
+    
+    autoPlayInterval = setInterval(() => {
+        nextStep();
+    }, stepDuration);
+}
+
+function stopAutoPlay() {
+    if (autoPlayInterval) {
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = null;
+    }
+    
+    isPlaying = false;
+    if (playIcon) playIcon.style.display = 'inline';
+    if (pauseIcon) pauseIcon.style.display = 'none';
+}
+
+// Button click handlers
+explainerButtons.forEach((btn, index) => {
+    if (btn.dataset.step !== undefined) {
+        btn.addEventListener('click', () => {
+            const stepIndex = parseInt(btn.dataset.step);
+            showStep(stepIndex);
+            stopAutoPlay();
+        });
+    }
+});
+
+// Play/Pause button
+if (playPauseBtn) {
+    playPauseBtn.addEventListener('click', () => {
+        if (isPlaying) {
+            stopAutoPlay();
+        } else {
+            startAutoPlay();
+        }
+    });
+}
+
+// Progress dot click handlers
+progressDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        showStep(index);
+        stopAutoPlay();
+    });
+});
+
+// Initialize
+if (explainerSteps.length > 0) {
+    showStep(0);
+    
+    // Auto-start after a delay
+    setTimeout(() => {
+        startAutoPlay();
+    }, 2000);
+}
+
+// Pause on visibility change
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden && isPlaying) {
+        stopAutoPlay();
+    }
+});
 
 // Console message for developers
 console.log('%cKeiros IoT Ecosystem', 'color: #00BFFF; font-size: 24px; font-weight: bold;');

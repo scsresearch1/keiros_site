@@ -62,6 +62,7 @@
             <ul class="nav-menu">
                 <li><a href="#hero" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
                 <li><a href="#device" class="nav-link">Device</a></li>
                 <li><a href="#firmware" class="nav-link">Firmware</a></li>
                 <li><a href="#erp" class="nav-link">ERP Platform & App</a></li>
@@ -83,6 +84,12 @@
             <div class="hero-grid"></div>
         </div>
         <div class="hero-content">
+            <div class="hero-image-container">
+                <video class="hero-door-image" autoplay muted loop playsinline>
+                    <source src="assets/SceenVideo1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
             <div class="hero-text">
                 <h1 class="hero-title">
                     <span class="title-line">Keiros</span>
@@ -223,6 +230,165 @@
                     <p>Control & Analytics</p>
                     <div class="ecosystem-detail">
                         <p>Comprehensive dashboard with real-time analytics and visualization</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Explainer Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How The Ecosystem Works</h2>
+                <p class="section-subtitle">Watch the seamless flow of data from device to insights</p>
+            </div>
+            
+            <div class="explainer-container">
+                <div class="explainer-controls">
+                    <button class="explainer-btn active" data-step="0">Start</button>
+                    <button class="explainer-btn" data-step="1">Step 1</button>
+                    <button class="explainer-btn" data-step="2">Step 2</button>
+                    <button class="explainer-btn" data-step="3">Step 3</button>
+                    <button class="explainer-btn" data-step="4">Step 4</button>
+                    <button class="explainer-btn" id="playPauseBtn">
+                        <span class="play-icon">▶</span>
+                        <span class="pause-icon" style="display: none;">⏸</span>
+                    </button>
+                </div>
+                
+                <div class="explainer-stage">
+                    <div class="explainer-step active" data-step="0">
+                        <div class="step-content">
+                            <div class="step-icon">👋</div>
+                            <h3>Welcome to Keiros Ecosystem</h3>
+                            <p>Four integrated components working together to deliver reliable IoT solutions that empower people and businesses</p>
+                            <div class="human-touch">
+                                <div class="person-icon">👤</div>
+                                <p class="human-message">Built for real-world reliability</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="explainer-step" data-step="1">
+                        <div class="step-visual">
+                            <div class="component-box device-box">
+                                <div class="component-icon">📱</div>
+                                <div class="component-label">Smart Device</div>
+                                <div class="component-detail">Collects location & sensor data</div>
+                                <div class="human-context">
+                                    <span class="context-icon">🏢</span>
+                                    <span class="context-text">Mounted on doors, tracking access</span>
+                                </div>
+                            </div>
+                            <div class="data-flow">
+                                <div class="data-pulse"></div>
+                                <div class="data-pulse" style="animation-delay: 0.3s;"></div>
+                                <div class="data-pulse" style="animation-delay: 0.6s;"></div>
+                            </div>
+                        </div>
+                        <div class="step-content">
+                            <h3>Step 1: Data Collection</h3>
+                            <p>The Keiros Smart Device continuously collects location data via GNSS and sensor information, then packages it for transmission using LoRaWAN technology.</p>
+                            <div class="human-benefit">
+                                <span class="benefit-icon">✨</span>
+                                <span>Operators get real-time visibility into their assets</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="explainer-step" data-step="2">
+                        <div class="step-visual">
+                            <div class="component-box firmware-box">
+                                <div class="component-icon">⚙️</div>
+                                <div class="component-label">Resilient Firmware</div>
+                                <div class="component-detail">Processes & optimizes data</div>
+                                <div class="human-context">
+                                    <span class="context-icon">🔧</span>
+                                    <span class="context-text">Self-healing, always improving</span>
+                                </div>
+                            </div>
+                            <div class="data-flow">
+                                <div class="data-pulse"></div>
+                                <div class="data-pulse" style="animation-delay: 0.3s;"></div>
+                                <div class="data-pulse" style="animation-delay: 0.6s;"></div>
+                            </div>
+                        </div>
+                        <div class="step-content">
+                            <h3>Step 2: Data Processing</h3>
+                            <p>Resilient Firmware processes the collected data, performs diagnostics, handles OTA updates, and ensures reliable telemetry transmission with built-in redundancy.</p>
+                            <div class="human-benefit">
+                                <span class="benefit-icon">🛡️</span>
+                                <span>Peace of mind with automatic updates and diagnostics</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="explainer-step" data-step="3">
+                        <div class="step-visual">
+                            <div class="component-box satellite-box">
+                                <div class="component-icon">🛰️</div>
+                                <div class="component-label">Satellite Network</div>
+                                <div class="component-detail">Global positioning & transmission</div>
+                                <div class="human-context">
+                                    <span class="context-icon">🌍</span>
+                                    <span class="context-text">Works everywhere, connects everyone</span>
+                                </div>
+                            </div>
+                            <div class="data-flow">
+                                <div class="data-pulse"></div>
+                                <div class="data-pulse" style="animation-delay: 0.3s;"></div>
+                                <div class="data-pulse" style="animation-delay: 0.6s;"></div>
+                            </div>
+                        </div>
+                        <div class="step-content">
+                            <h3>Step 3: Global Transmission</h3>
+                            <p>Data is transmitted through LoRaWAN gateways and satellite networks, ensuring connectivity even in remote locations with global coverage.</p>
+                            <div class="human-benefit">
+                                <span class="benefit-icon">🌐</span>
+                                <span>No location is too remote - your data always reaches you</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="explainer-step" data-step="4">
+                        <div class="step-visual">
+                            <div class="component-box erp-box">
+                                <div class="component-icon">📊</div>
+                                <div class="component-label">ERP Platform</div>
+                                <div class="component-detail">Analytics & visualization</div>
+                                <div class="human-context">
+                                    <span class="context-icon">💼</span>
+                                    <span class="context-text">Managers make informed decisions</span>
+                                </div>
+                            </div>
+                            <div class="data-flow">
+                                <div class="data-pulse"></div>
+                                <div class="data-pulse" style="animation-delay: 0.3s;"></div>
+                                <div class="data-pulse" style="animation-delay: 0.6s;"></div>
+                            </div>
+                        </div>
+                        <div class="step-content">
+                            <h3>Step 4: Insights & Control</h3>
+                            <p>The ERP Platform & App receives the data, processes it in real-time, and provides actionable insights through customizable dashboards, analytics, and control interfaces.</p>
+                            <div class="human-benefit">
+                                <span class="benefit-icon">🎯</span>
+                                <span>Teams collaborate with confidence, backed by reliable data</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="explainer-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-steps">
+                        <div class="progress-dot active" data-step="0"></div>
+                        <div class="progress-dot" data-step="1"></div>
+                        <div class="progress-dot" data-step="2"></div>
+                        <div class="progress-dot" data-step="3"></div>
+                        <div class="progress-dot" data-step="4"></div>
                     </div>
                 </div>
             </div>
@@ -487,99 +653,17 @@
             <div class="section-header">
                 <h2 class="section-title">ERP Platform & App</h2>
                 <p class="section-subtitle">Control, analytics, and visualization</p>
+                <div class="erp-demo-link">
+                    <a href="https://comforting-dusk-6ee95f.netlify.app/login" target="_blank" rel="noopener noreferrer" class="btn btn-demo">
+                        <span class="demo-icon">🚀</span>
+                        <span>View Live Demo</span>
+                        <span class="demo-arrow">→</span>
+                    </a>
+                </div>
             </div>
             
             <div class="erp-content">
                 <div class="erp-main">
-                    <div class="erp-visual">
-                        <div class="platform-showcase">
-                            <div class="platform-header">
-                                <div class="platform-title">
-                                    <div class="platform-icon">📊</div>
-                                    <h3>Keiros Control Center</h3>
-                                </div>
-                                <div class="platform-status">
-                                    <span class="status-indicator-live"></span>
-                                    <span class="status-text">Live</span>
-                                </div>
-                            </div>
-                            
-                            <div class="platform-metrics-grid">
-                                <div class="platform-metric-card" data-metric="1">
-                                    <div class="metric-icon">📱</div>
-                                    <div class="metric-info">
-                                        <div class="metric-value-animated" data-target="1247" data-suffix="">1,247</div>
-                                        <div class="metric-label">Active Devices</div>
-                                        <div class="metric-trend">+12 this month</div>
-                                    </div>
-                                </div>
-                                <div class="platform-metric-card" data-metric="2">
-                                    <div class="metric-icon">⚡</div>
-                                    <div class="metric-info">
-                                        <div class="metric-value-animated" data-target="99.97" data-suffix="%">99.97%</div>
-                                        <div class="metric-label">System Uptime</div>
-                                        <div class="metric-trend">Last 30 days</div>
-                                    </div>
-                                </div>
-                                <div class="platform-metric-card" data-metric="3">
-                                    <div class="metric-icon">📈</div>
-                                    <div class="metric-info">
-                                        <div class="metric-value-animated" data-target="125847" data-suffix="">125.8K</div>
-                                        <div class="metric-label">Data Points</div>
-                                        <div class="metric-trend">Last 24 hours</div>
-                                    </div>
-                                </div>
-                                <div class="platform-metric-card" data-metric="4">
-                                    <div class="metric-icon">📍</div>
-                                    <div class="metric-info">
-                                        <div class="metric-value-animated" data-target="47" data-suffix="">47</div>
-                                        <div class="metric-label">Locations</div>
-                                        <div class="metric-trend">Across 23 states</div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="platform-chart-visual">
-                                <div class="chart-mini">
-                                    <div class="chart-title-mini">Activity Trend - Last 7 Days</div>
-                                    <div class="chart-bars-mini">
-                                        <div class="chart-bar-mini" data-value="1250" style="--height: 65%; animation-delay: 0s;">
-                                            <span class="bar-label">Mon</span>
-                                        </div>
-                                        <div class="chart-bar-mini" data-value="1890" style="--height: 85%; animation-delay: 0.1s;">
-                                            <span class="bar-label">Tue</span>
-                                        </div>
-                                        <div class="chart-bar-mini" data-value="1420" style="--height: 72%; animation-delay: 0.2s;">
-                                            <span class="bar-label">Wed</span>
-                                        </div>
-                                        <div class="chart-bar-mini" data-value="2150" style="--height: 95%; animation-delay: 0.3s;">
-                                            <span class="bar-label">Thu</span>
-                                        </div>
-                                        <div class="chart-bar-mini" data-value="1680" style="--height: 78%; animation-delay: 0.4s;">
-                                            <span class="bar-label">Fri</span>
-                                        </div>
-                                        <div class="chart-bar-mini" data-value="1950" style="--height: 88%; animation-delay: 0.5s;">
-                                            <span class="bar-label">Sat</span>
-                                        </div>
-                                        <div class="chart-bar-mini" data-value="1480" style="--height: 74%; animation-delay: 0.6s;">
-                                            <span class="bar-label">Sun</span>
-                                        </div>
-                                    </div>
-                                    <div class="chart-legend">
-                                        <div class="legend-item">
-                                            <span class="legend-dot" style="background: var(--color-primary);"></span>
-                                            <span class="legend-text">Data Transmission</span>
-                                        </div>
-                                        <div class="legend-item">
-                                            <span class="legend-dot" style="background: var(--color-success);"></span>
-                                            <span class="legend-text">Successful</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
                     <div class="erp-features-modern">
                         <div class="erp-feature-card" data-feature="1">
                             <div class="feature-icon-wrapper">
@@ -619,6 +703,100 @@
                             <p>Use secure RESTful APIs to connect Keiros event data with existing access control or facility management systems.</p>
                             <p class="feature-detail">Supports structured JSON payloads, authentication tokens, and webhook triggers for automated workflows.</p>
                             <div class="feature-indicator"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="erp-visual-wrapper">
+                        <div class="erp-image-container">
+                            <img src="assets/Door3.png" alt="Keiros device monitoring" class="erp-door-image">
+                        </div>
+                        <div class="erp-visual">
+                            <div class="platform-showcase">
+                                <div class="platform-header">
+                                    <div class="platform-title">
+                                        <div class="platform-icon">📊</div>
+                                        <h3>Keiros Control Center</h3>
+                                    </div>
+                                    <div class="platform-status">
+                                        <span class="status-indicator-live"></span>
+                                        <span class="status-text">Live</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="platform-metrics-grid">
+                                    <div class="platform-metric-card" data-metric="1">
+                                        <div class="metric-icon">📱</div>
+                                        <div class="metric-info">
+                                            <div class="metric-value-animated" data-target="1247" data-suffix="">1,247</div>
+                                            <div class="metric-label">Active Devices</div>
+                                            <div class="metric-trend">+12 this month</div>
+                                        </div>
+                                    </div>
+                                    <div class="platform-metric-card" data-metric="2">
+                                        <div class="metric-icon">⚡</div>
+                                        <div class="metric-info">
+                                            <div class="metric-value-animated" data-target="99.97" data-suffix="%">99.97%</div>
+                                            <div class="metric-label">System Uptime</div>
+                                            <div class="metric-trend">Last 30 days</div>
+                                        </div>
+                                    </div>
+                                    <div class="platform-metric-card" data-metric="3">
+                                        <div class="metric-icon">📈</div>
+                                        <div class="metric-info">
+                                            <div class="metric-value-animated" data-target="125847" data-suffix="">125.8K</div>
+                                            <div class="metric-label">Data Points</div>
+                                            <div class="metric-trend">Last 24 hours</div>
+                                        </div>
+                                    </div>
+                                    <div class="platform-metric-card" data-metric="4">
+                                        <div class="metric-icon">📍</div>
+                                        <div class="metric-info">
+                                            <div class="metric-value-animated" data-target="47" data-suffix="">47</div>
+                                            <div class="metric-label">Locations</div>
+                                            <div class="metric-trend">Across 23 states</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="platform-chart-visual">
+                                    <div class="chart-mini">
+                                        <div class="chart-title-mini">Activity Trend - Last 7 Days</div>
+                                        <div class="chart-bars-mini">
+                                            <div class="chart-bar-mini" data-value="1250" style="--height: 65%; animation-delay: 0s;">
+                                                <span class="bar-label">Mon</span>
+                                            </div>
+                                            <div class="chart-bar-mini" data-value="1890" style="--height: 85%; animation-delay: 0.1s;">
+                                                <span class="bar-label">Tue</span>
+                                            </div>
+                                            <div class="chart-bar-mini" data-value="1420" style="--height: 72%; animation-delay: 0.2s;">
+                                                <span class="bar-label">Wed</span>
+                                            </div>
+                                            <div class="chart-bar-mini" data-value="2150" style="--height: 95%; animation-delay: 0.3s;">
+                                                <span class="bar-label">Thu</span>
+                                            </div>
+                                            <div class="chart-bar-mini" data-value="1680" style="--height: 78%; animation-delay: 0.4s;">
+                                                <span class="bar-label">Fri</span>
+                                            </div>
+                                            <div class="chart-bar-mini" data-value="1950" style="--height: 88%; animation-delay: 0.5s;">
+                                                <span class="bar-label">Sat</span>
+                                            </div>
+                                            <div class="chart-bar-mini" data-value="1480" style="--height: 74%; animation-delay: 0.6s;">
+                                                <span class="bar-label">Sun</span>
+                                            </div>
+                                        </div>
+                                        <div class="chart-legend">
+                                            <div class="legend-item">
+                                                <span class="legend-dot" style="background: var(--color-primary);"></span>
+                                                <span class="legend-text">Data Transmission</span>
+                                            </div>
+                                            <div class="legend-item">
+                                                <span class="legend-dot" style="background: var(--color-success);"></span>
+                                                <span class="legend-text">Successful</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

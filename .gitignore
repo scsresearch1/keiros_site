@@ -27,3 +27,7 @@ Thumbs.db
 # Netlify
 .netlify/
 
+# Large files
+gradle-*.zip
+*.zip
+
