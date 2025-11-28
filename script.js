@@ -1,5 +1,6 @@
 // ==========================================
 // KEIROS Website - JavaScript
+// Version: TP-K1
 // ==========================================
 
 // Navigation
@@ -710,6 +711,77 @@ document.addEventListener('visibilitychange', () => {
         stopAutoPlay();
     }
 });
+
+// Product Slideshow - Slow auto-advance for first-time visitors
+const slideshow = document.querySelector('.product-slideshow');
+if (slideshow) {
+    const slides = slideshow.querySelectorAll('.slide');
+    const indicators = slideshow.querySelectorAll('.indicator');
+    let currentSlide = 0;
+    let slideInterval;
+    
+    // Show specific slide
+    function showSlide(index) {
+        // Remove active class from all slides and indicators
+        slides.forEach(slide => slide.classList.remove('active'));
+        indicators.forEach(indicator => indicator.classList.remove('active'));
+        
+        // Add active class to current slide and indicator
+        if (slides[index]) {
+            slides[index].classList.add('active');
+        }
+        if (indicators[index]) {
+            indicators[index].classList.add('active');
+        }
+        
+        currentSlide = index;
+    }
+    
+    // Auto-advance slides (slow - 8 seconds per slide)
+    function startSlideshow() {
+        slideInterval = setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 5000); // 5 seconds per slide
+    }
+    
+    // Pause on hover
+    slideshow.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+    });
+    
+    // Resume on mouse leave
+    slideshow.addEventListener('mouseleave', () => {
+        startSlideshow();
+    });
+    
+    // Click on indicators to jump to slide
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            clearInterval(slideInterval);
+            showSlide(index);
+            startSlideshow();
+        });
+    });
+    
+    // Initialize - show first slide and start auto-advance
+    if (slides.length > 0) {
+        showSlide(0);
+        // Start after a short delay to let page load
+        setTimeout(() => {
+            startSlideshow();
+        }, 2000);
+    }
+    
+    // Pause when page is not visible
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            clearInterval(slideInterval);
+        } else {
+            startSlideshow();
+        }
+    });
+}
 
 // Console message for developers
 console.log('%cKeiros IoT Ecosystem', 'color: #00BFFF; font-size: 24px; font-weight: bold;');

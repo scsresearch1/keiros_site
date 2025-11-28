@@ -1,5 +1,7 @@
 # Keiros IoT Ecosystem Website
 
+**Version: TP-K1**
+
 An informative, static website for Keiros - an advanced IoT ecosystem combining smart hardware (LoRa + GNSS), resilient firmware, and ERP platform. Designed for US enterprise clients with modern animations, clean typography, and a scientific design tone.
 
 ## Features

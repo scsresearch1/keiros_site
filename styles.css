@@ -1,5 +1,6 @@
 /* ==========================================
    KEIROS Website - Professional Design System
+   Version: TP-K1
    ========================================== */
 
 /* CSS Variables - Professional Color Palette */
@@ -363,6 +364,141 @@ a:hover {
     align-items: center;
     justify-content: center;
     animation: fadeInLeft 1s ease-out;
+    min-height: 400px;
+}
+
+/* Product Slideshow */
+.product-slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    background: var(--color-surface);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(37, 99, 235, 0.2);
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    text-align: center;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 2;
+}
+
+.slide-image {
+    width: 100%;
+    max-width: 300px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: rgba(37, 99, 235, 0.05);
+}
+
+.slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    transition: transform 0.5s ease;
+}
+
+.slide.active .slide-image img {
+    animation: imageFadeIn 0.6s ease-out 0.2s both;
+}
+
+.slide-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.slide-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out 0.3s, transform 0.6s ease-out 0.3s;
+}
+
+.slide.active .slide-title {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s;
+}
+
+.slide.active .slide-description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-indicators {
+    position: absolute;
+    bottom: var(--spacing-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--spacing-sm);
+    z-index: 10;
+}
+
+.indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: rgba(37, 99, 235, 0.9);
+    width: 24px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+}
+
+@keyframes imageFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .hero-door-image {
@@ -405,10 +541,57 @@ a:hover {
     .hero-image-container {
         max-width: 400px;
         margin: 0 auto;
+        min-height: 450px;
+    }
+    
+    .product-slideshow {
+        max-width: 400px;
+        height: 450px;
+    }
+    
+    .slide-image {
+        max-width: 250px;
+        height: 200px;
+    }
+    
+    .slide-title {
+        font-size: 1.3rem;
+    }
+    
+    .slide-description {
+        font-size: 0.95rem;
     }
     
     .hero-door-image {
         max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-image-container {
+        min-height: 400px;
+    }
+    
+    .product-slideshow {
+        max-width: 100%;
+        height: 400px;
+    }
+    
+    .slide-image {
+        max-width: 200px;
+        height: 180px;
+    }
+    
+    .slide-title {
+        font-size: 1.2rem;
+    }
+    
+    .slide-description {
+        font-size: 0.9rem;
+    }
+    
+    .slide {
+        padding: var(--spacing-lg);
     }
 }
 
