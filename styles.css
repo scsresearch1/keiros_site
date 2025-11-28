@@ -521,6 +521,90 @@ a:hover {
     filter: drop-shadow(0 35px 70px rgba(37, 99, 235, 0.4));
 }
 
+/* Hero Video Spotlight */
+.hero-video-spotlight {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 1));
+    padding: var(--spacing-3xl) 0;
+}
+
+.hero-video-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+}
+
+.hero-video-text .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--text-sm);
+}
+
+.hero-video-text h2 {
+    color: var(--color-text-primary);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-video-text p {
+    color: var(--color-text-secondary);
+    font-size: var(--text-lg);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-video-text ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+.hero-video-text li {
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.hero-video-text li::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.6);
+}
+
+.hero-video-frame {
+    background: radial-gradient(circle at top, rgba(37, 99, 235, 0.2), transparent 70%);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-md);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35), 0 0 40px rgba(37, 99, 235, 0.25);
+}
+
+.spotlight-video {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    display: block;
+}
+
+@media (max-width: 1024px) {
+    .hero-video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-video-frame {
+        order: -1;
+    }
+}
+
 .hero-text {
     text-align: left;
     max-width: 100%;
